@@ -1,8 +1,33 @@
-// lyrics.js
-export default function Lyrics({ lyrics }) { // Corrected prop name to "lyrics"
+import { useState, useEffect } from "react";
+
+export default function Lyrics({ lyrics }) {
+    const [formattedLyrics, setFormattedLyrics] = useState([]);
+
+    useEffect(() => {
+        if (lyrics) {
+            formatLyrics();
+        }
+    }, [lyrics]);
+
+    async function formatLyrics() {
+        const lines = lyrics.split('\n');
+        const formatted = lines.slice(1).map((line, index) => {
+            return <span key={index}>{line}<br /></span>;
+        });
+        setFormattedLyrics(formatted);
+    }
+
     return (
         <main>
-            <p>{lyrics}</p>
+            {formattedLyrics.length > 0 ? (
+                <ul>
+                    {formattedLyrics.map((line, index) => {
+                        return <li key={index}>{line}</li>;
+                    })}
+                </ul>
+            ) : (
+                <p>No lyrics available</p>
+            )}
         </main>
     );
 }
