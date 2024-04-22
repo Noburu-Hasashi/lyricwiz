@@ -21,15 +21,17 @@ export default function Home() {
 
   return (
     <main>
-      <h1>LyricWiz</h1>
-      <p>Find the lyrics to your favorite songs!</p>
+      <h1 className=" text-center m-10 text-5xl font-extrabold text-orange-600 hover:text-orange-400 subpixel-antialiased font-mono">LyricWiz</h1>
+      <hr className="border-2 border-orange-600"></hr>
+      <div className="text-center m-10 text-2xl text-orange-600 subpixel-antialiased font-mono">
+      <p className="pb-5">Find the lyrics to your favorite songs!</p>
       <form onSubmit={handleSubmit}>
-        <label>Artist</label>
-        <input type="text" className="text-slate-900" value={artist} onChange={(event) => setArtist(event.target.value)}/>
-        <label>Song</label>
-        <input type="text" className="text-slate-900" value={song} onChange={(event) => setSong(event.target.value)}/>
+        <input type="text" className="text-slate-900 rounded-3xl mr-5" value={artist} placeholder="  Artist..." onChange={(event) => setArtist(event.target.value)}/>
+        <input type="text" className="text-slate-900 rounded-3xl ml-5" value={song} placeholder="  Song..." onChange={(event) => setSong(event.target.value)}/>
       </form>
+      </div>
       <GetLyrics artist={artist} song={song} />
+      <hr className="border-2 border-orange-600 mb-10 mt-10"></hr>
     </main>
   );
 }

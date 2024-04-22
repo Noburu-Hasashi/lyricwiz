@@ -19,6 +19,7 @@ export default function Lyrics({ lyrics }) {
 
     return (
         <main>
+            <div className=" text-center font-semibold font-mono text-orange-400">
             {formattedLyrics.length > 0 ? (
                 <ul>
                     {formattedLyrics.map((line, index) => {
@@ -28,6 +29,7 @@ export default function Lyrics({ lyrics }) {
             ) : (
                 <p>No lyrics available</p>
             )}
+            </div>
         </main>
     );
 }
